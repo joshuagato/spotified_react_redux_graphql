@@ -1,0 +1,8 @@
+.update-details-container {
+  padding: 0.5rem 1rem;
+
+  @media(max-width: 575px) and (orientation: portrait) {
+    padding: 0;
+    padding-bottom: 1rem;
+  }
+}

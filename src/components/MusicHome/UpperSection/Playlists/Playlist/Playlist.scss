@@ -1,0 +1,30 @@
+.playlist {
+    display: inline-block;
+    
+    width: 17.5%;
+    margin: 1rem 0.8rem;
+
+    @media(max-width: 991px) and (orientation: portrait) {
+        width: 31%;
+        margin: 0.8rem 0.5rem;
+    }
+
+    @media(max-width: 575px) and (orientation: portrait) {
+        width: 45%;
+        margin: 0.8rem 0.5rem;
+    }
+
+    .playlist-icon {
+        border: 3px solid #282828;
+        padding: 0.8rem;
+
+        .playlist-img {
+            width: 100%;
+        }
+    }
+
+    .playlist-name {
+        color: #fff;
+        text-align: center;
+    }
+}

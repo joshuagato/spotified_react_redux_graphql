@@ -1,0 +1,33 @@
+.settings {
+  padding: 2rem;
+
+  .name {
+    text-align: center;
+    color: #fff;
+    font-size: 2rem;
+    font-weight: bold;
+    margin: 1.8rem 0;
+  }
+
+  button {
+    display: block;
+    margin: 1.8rem auto;
+    background-color: #181818;
+    color: #fff;
+    height: 3rem;
+    letter-spacing: 2px;
+    padding: 1rem 1.5rem;
+    border: 2px solid #fff;
+    border-radius: 2rem;
+    cursor: pointer;
+    transition: background-color 0.7s;
+
+    &:hover {
+      background-color: #000;
+    }
+
+    &:focus, &:active {
+      outline: none;
+    }
+  }
+}

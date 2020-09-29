@@ -1,0 +1,36 @@
+form.update-details {
+  border-bottom: 1px solid #fff;
+  margin-bottom: 3rem;
+
+  h1 {
+    color: #fff;
+    font-size: 1.5rem;
+    text-align: center;
+    text-transform: uppercase;
+    margin: 1rem 0;
+  }
+
+  button {
+    display: block;
+    margin: 1rem auto;
+    background-color: #181818;
+    color: #fff;
+    text-transform: uppercase;
+    height: 3rem;
+    width: 9rem;
+    letter-spacing: 2px;
+    padding: 1rem;
+    border: 2px solid #fff;
+    border-radius: 2rem;
+    cursor: pointer;
+    transition: background-color 0.7s;
+
+    &:hover {
+      background-color: #000;
+    }
+
+    &:focus, &:active {
+      outline: none;
+    }
+  }
+}

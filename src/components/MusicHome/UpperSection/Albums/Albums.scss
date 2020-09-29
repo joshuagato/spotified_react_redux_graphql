@@ -1,0 +1,29 @@
+.albums-heading {
+  font-size: 2rem;
+  color: #fff;
+  text-align: center;
+  padding: 1rem;
+
+  @media(max-width: 575px), (max-width: 991px) and (orientation: portrait) {
+    margin-top: 1.5rem;
+  }
+
+  @media(max-width: 575px) and (orientation: portrait) {
+    padding-bottom: 0;
+  }
+}
+
+.albums {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  margin: auto;
+
+  @media(max-width: 991px) and (orientation: portrait) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  @media(max-width: 575px) and (orientation: portrait) {
+    display: block;
+    width: 70%;
+  }
+}

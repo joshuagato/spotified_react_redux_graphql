@@ -1,0 +1,49 @@
+.songs-container {
+  width: 100%;
+  padding: 1rem 0.5rem;
+
+  @media(max-width: 575px) and (orientation: portrait) {
+    padding: 0.5rem 0.2rem;
+  }
+
+  section.song-details-section {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    margin: 1rem auto;
+
+    div.albumArt-section {
+      width: 29%;
+      max-width: 200px;
+      margin-right: 2rem;
+
+      @media(max-width: 575px) and (orientation: portrait) {
+        width: 40%;
+      }
+
+      img {
+        width: 100%;
+        border-radius: 5px;
+      }
+    }
+  
+    div.details-section {
+      width: 75%;
+
+      h1 {
+        color: #fff;
+        margin: 0.7rem 0;
+      }
+
+      p {
+        color: #939393;
+        font-size: 14px;
+        margin: 0.7rem 0;
+      }
+    }
+  }
+  
+  .songs-section {
+    padding: 0 0.5rem;
+  }
+}
