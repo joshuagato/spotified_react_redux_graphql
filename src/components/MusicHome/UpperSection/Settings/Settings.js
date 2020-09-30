@@ -16,11 +16,11 @@ class Settings extends Component {
   render() {
     return (
       <div className="settings">
-          <p className="name">{this.props.name.firstname + ' ' + this.props.name.lastname}</p>
-          <section className="buttons">
-            <button onClick={this.loadUpdateDetailsPage}>USER DETAILS</button>
-            <button onClick={this.logoutHandler}>LOGOUT</button>
-          </section>
+        <p className="name">{this.props.name.firstname + ' ' + this.props.name.lastname}</p>
+        <section className="buttons">
+          <button onClick={this.loadUpdateDetailsPage}>USER DETAILS</button>
+          <button onClick={this.logoutHandler}>LOGOUT</button>
+        </section>
       </div>
     );
   }

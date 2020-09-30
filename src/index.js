@@ -4,6 +4,7 @@ import { BrowserRouter } from 'react-router-dom';
 import { createStore, applyMiddleware, combineReducers, compose } from 'redux';
 import { Provider } from 'react-redux';
 import thunk from 'redux-thunk';
+import axios from 'axios';
 
 import './index.css';
 import App from './App';
@@ -14,6 +15,8 @@ import registerReducer from './store/reducers/register';
 import userDetailsReducer from './store/reducers/fetch-user-details';
 import musicPlayerReducer from './store/reducers/music-player';
 import songsReducer from './store/reducers/songs';
+
+axios.defaults.baseURL = 'http://localhost:4004/';
 
 const composeEnhancers = process.env.NODE_ENV === 'development' ? window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ : null || compose;
 
@@ -35,7 +38,6 @@ const app = (
   </Provider>
 );
 
-// ReactDOM.render(<App />, document.getElementById('root'));
 ReactDOM.render(app, document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change

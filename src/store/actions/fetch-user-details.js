@@ -20,7 +20,7 @@ export const fetchUserForMusicHome = userId => {
       `,
       variables: { id: +userId }
     };
-    axios.post(process.env.REACT_APP_GRAPHQL_URL, graphqlQuery).then(response => {
+    axios.post('/graphql', graphqlQuery).then(response => {
       dispatch(fetchUserForMusicHomeSuccess(response.data.data.getUserDetails));
     })
     .catch(error => console.log(error));
@@ -46,7 +46,7 @@ export const fetchUserForUpdateDetails = userId => {
       `,
       variables: { id: +userId }
     };
-    axios.post(process.env.REACT_APP_GRAPHQL_URL, graphqlQuery).then(response => {
+    axios.post('/graphql', graphqlQuery).then(response => {
       dispatch(fetchUserForUpdateDetailsSuccess(response.data.data.getUserDetails));
     })
     .catch(error => console.log(error));

@@ -13,12 +13,9 @@ export const setInitialPlaylistToAllSongs = () => {
         }
       `
     };
-    axios.post(process.env.REACT_APP_GRAPHQL_URL, allSongsQuery).then(response => {
+    axios.post('/graphql', allSongsQuery).then(response => {
       const allSongs = response.data.data.allSongs;
-      // const albumId = allSongs[0].album;
-      // const artistId = allSongs[0].artist;
-      dispatch(setInitialPlaylist(allSongs))
-      // this.setState({ songs: allSongs, albumId: albumId, artistId: artistId });
+      dispatch(setInitialPlaylist(allSongs));
     })
     .catch(error => console.log(error));
   }
@@ -52,10 +49,9 @@ const artistQuery = artistId => {
       `,
       variables: { id: +artistId }
     };
-    axios.post(process.env.REACT_APP_GRAPHQL_URL, artistQuery).then(response => {
+    axios.post('/graphql', artistQuery).then(response => {
       const result = response.data.data.artist;
       dispatch(artistQuerySuccess(result.name));
-      // this.setState({ artistName: result.name });
     })
     .catch(error => console.log(error));
   }
@@ -81,7 +77,6 @@ const numOfSongsQuery = albumId => {
     axios.post(process.env.REACT_APP_GRAPHQL_URL, numOfSongsQuery).then(response => {
       const numofsongs = response.data.data.numOfSongs
       dispatch(numOfSongsQuerySuccess(numofsongs));
-      // this.setState({ numofsongs: response.data.data.numOfSongs });
     })
     .catch(error => console.log(error));
   }
@@ -109,7 +104,6 @@ const albumQuery = albumId => {
     axios.post(process.env.REACT_APP_GRAPHQL_URL, albumQuery).then(response => {
       const result = response.data.data.album;
       dispatch(albumQuerySuccess(result.title, result.artwork_path));
-      // this.setState({ artwork: result.artwork_path, albumTitle: result.title, artistId: result.artist });
     })
     .catch(error => console.log(error));
   }
@@ -138,7 +132,6 @@ const albumSongsQuery = albumId => {
     axios.post(process.env.REACT_APP_GRAPHQL_URL, albumSongsQuery).then(response => {
       const result = response.data.data.albumSongs;
       dispatch(albumSongsQuerySuccess(result));
-      // this.setState({ songs: result });
     })
     .catch(error => console.log(error));
   }

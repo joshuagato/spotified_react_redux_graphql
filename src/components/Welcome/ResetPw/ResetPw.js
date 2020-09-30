@@ -36,10 +36,10 @@ class ResetPw extends Component {
   }
 
   emailInputChangedHandler = event => {
-      this.setState({ email: event.target.value });
+    this.setState({ email: event.target.value });
   }
   passwordChangeHandler = event => {
-      this.setState({ pwdInput: { ...this.state.pwdInput, [event.target.name]: event.target.value } });
+    this.setState({ pwdInput: { ...this.state.pwdInput, [event.target.name]: event.target.value } });
   };
 
   sendResetToken = event => {
@@ -50,15 +50,14 @@ class ResetPw extends Component {
     const graphqlQuery = {
       query: `
         mutation ResetRequest($email: String!) {
-            passwordResetRequest(userEmail: $email)
+          passwordResetRequest(userEmail: $email)
         }
       `,
       variables: { email: email }
     };
 
-    axios.post(process.env.REACT_APP_GRAPHQL_URL, graphqlQuery)
+    axios.post('/graphql', graphqlQuery)
     .then(response => {
-      // console.log(response.data);
       // const message = 'Reset link sent to your email. Please click on it to reset your password.';
       this.setState({ email: '', message: response.data.errors[0].message });
     })
@@ -78,9 +77,8 @@ class ResetPw extends Component {
       `,
       variables: { token: state.token, newPassword: state.newPassword, confirmPassword: state.confirmNewPassword }
     };
-    axios.post(process.env.REACT_APP_GRAPHQL_URL, graphqlQuery)
-    .then(response => {
-      // console.log(response.data);
+    axios.post('/graphql', graphqlQuery)
+    .then(() => {
       this.setState({ pwdInput: { ...this.state.pwdInput, token: '', newPassword: '', confirmNewPassword: '' } })
     })
     .catch(error => {

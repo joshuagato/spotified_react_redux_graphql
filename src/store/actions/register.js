@@ -17,17 +17,17 @@ export const registerUser = userInput => {
   return dispatch => {
     const graphqlQuery = {
       query: `
-          mutation RegisterUser($firstname: String!, $lastname: String!, $email: String!, $password: String!) {
-              createUser(userInput: { firstname: $firstname, lastname: $lastname, email: $email, password: $password }) {
-                  id firstname lastname email
-              }
+        mutation RegisterUser($firstname: String!, $lastname: String!, $email: String!, $password: String!) {
+          createUser(userInput: { firstname: $firstname, lastname: $lastname, email: $email, password: $password }) {
+            id firstname lastname email
           }
+        }
       `,
       variables: { firstname: userInput.firstname, lastname: userInput.lastname, 
-          email: userInput.email, password: userInput.password }
+        email: userInput.email, password: userInput.password }
     };
 
-    axios.post(process.env.REACT_APP_GRAPHQL_URL, graphqlQuery).then(response => {
+    axios.post('/graphql', graphqlQuery).then(response => {
       dispatch(registerSuccess(response.data.data));
       // dispatch(registerSuccess(response.data.data.createUser));
       // A Redirect and/or success message has to be displayed to the user

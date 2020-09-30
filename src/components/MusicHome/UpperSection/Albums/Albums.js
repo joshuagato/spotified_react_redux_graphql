@@ -47,17 +47,14 @@ class Albums extends Component {
   }
 
   render() {
-
     return (
       <Auxil>
         <h1 className="albums-heading">You might also like</h1>
         <div className="albums">
-          {
-            this.state.albums.map(album => (
+          {this.state.albums.map(album => (
               <Album key={album.id} albumId={album.id} artistId={album.artist} pic={album.artwork_path} 
                 name={album.title} clicked={this.openSongs} />
-            ))
-          }
+            ))}
         </div>
       </Auxil>
     );

@@ -10,8 +10,8 @@ class Welcome extends Component {
   }
 
   formSwitchHandler = () => {
-    this.setState((prevState) => {
-        return { registered: !prevState.registered };
+    this.setState(prevState => {
+      return { registered: !prevState.registered };
     });
   }
 

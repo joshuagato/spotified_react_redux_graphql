@@ -50,24 +50,21 @@ class Search extends Component {
     }
   }
 
-    render() {
-      return (
-        <div className="search">
-          <section className="search-box">
-            <span>Search for a Song, Artist or Album.</span>
-            <input type="search" placeholder="Start Typing..." value={this.state.term} 
-              onChange={this.getSearchTerm} ref="searchInput" />
-          </section>
-            {
-            this.state.term !== '' ?
-              <section className="search-results">
-                <ResultSection content={this.state.content} name="songs" query={this.state.term} nothing={this.state.nothing} />
-                <ResultSection content={this.state.content} name="artists" query={this.state.term} nothing={this.state.nothing} />
-                <ResultSection content={this.state.content} name="albums" query={this.state.term} nothing={this.state.nothing} />
-              </section> :
-            ""
-            }
-        </div>
+  render() {
+    return (
+      <div className="search">
+        <section className="search-box">
+          <span>Search for a Song, Artist or Album.</span>
+          <input type="search" placeholder="Start Typing..." value={this.state.term} 
+            onChange={this.getSearchTerm} ref="searchInput" />
+        </section>
+          {this.state.term !== '' &&
+            <section className="search-results">
+              <ResultSection content={this.state.content} name="songs" query={this.state.term} nothing={this.state.nothing} />
+              <ResultSection content={this.state.content} name="artists" query={this.state.term} nothing={this.state.nothing} />
+              <ResultSection content={this.state.content} name="albums" query={this.state.term} nothing={this.state.nothing} />
+            </section>}
+      </div>
     );
   }
 };

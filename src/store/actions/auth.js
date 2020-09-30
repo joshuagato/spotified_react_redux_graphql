@@ -64,7 +64,6 @@ const authFail = error => {
   };
 };
 export const auth = (email, password) => {
-  console.log(process.env.REACT_APP_GRAPHQL_URL)
   return dispatch => {
     // We can dispatch authStart here, if for instance we want to implement a spinner
 
@@ -79,7 +78,7 @@ export const auth = (email, password) => {
       variables: { email: email, password: password }
     };
     
-    axios.post(process.env.REACT_APP_GRAPHQL_URL, graphqlQuery).then(response => {
+    axios.post('/graphql', graphqlQuery).then(response => {
       localStorage.setItem('token', response.data.data.login.token);
       localStorage.setItem('userId', response.data.data.login.userId);
       const expiry = new Date(new Date().getTime() + 3600 * 1000);
